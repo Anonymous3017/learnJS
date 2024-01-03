@@ -229,6 +229,47 @@ booky.post("/publication/add", (req,res) => {
     return res.json({updatedPublications: database.Publications})
 })
 
+//to check if a book is present and then uodate the book suing post
+
+/*
+Route           /book/update/title
+Description     Update book title
+Access          PUBLIC
+Parameter       isbn
+Methods         POST
+*/
+
+
+// booky.post("/book/update/:isbn", (req, res) => {
+//     const getSpecificBooks = database.Books.filter(
+//         (book) => book.ISBN === req.params.isbn
+//     );
+    
+//     if(getSpecificBooks.length === 0) {
+//         return res.json({ error: `No book found for the ISBN of ${req.params.isbn}`})
+//     }
+
+//     // change the title of the book
+//     getSpecificBooks[0].title = req.body.newBookTitle;
+
+//     return res.json({books: getSpecificBooks})
+// });
+
+
+booky.post("/book/update/:isbn", (req, res) => {
+    const getSpecificBooks = database.Books.filter(
+        (book) => book.ISBN === req.params.isbn
+    );
+
+    if(getSpecificBooks.length === 0) {
+        return res.json({error: `No Book found with ISBN no. ${req.params.isbn}`});
+    }
+
+    getSpecificBooks[0].title =  req.body.newBookTitle;
+
+    return res.json({books: getSpecificBooks})
+});
+
 
 booky.listen(3000, () => {
     console.log("Server is up and running");
