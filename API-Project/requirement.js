@@ -24,11 +24,16 @@
 //2. Authors
 //we need an API
 //to get all authors - Done  ✔
-//to get specific author
-//to get a list of authors based on books
+//to get specific author - Done  ✔
+//to get a list of authors based on books - Done  ✔
 
 //3. Publications
 //we need an API
-//to get all publications
-//to get specifi publication
-//to get a list of publications based on a book
+//to get all publications - Done  ✔
+//to get specifi publication - Done  ✔
+//to get a list of publications based on a book - Done  ✔
+
+//POST
+//1. Add new book - Done  ✔
+//2. Add new publication - Done  ✔
+//3. Add new author - Done  ✔
