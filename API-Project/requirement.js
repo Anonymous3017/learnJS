@@ -17,13 +17,13 @@
 //1. Books
 //we need an API 
 //to get all books - Done  ✔
-//to get specific book
-//to get a list of books based on category
-//to get list of books based on Languages
+//to get specific book - Done  ✔
+//to get a list of books based on category - Done  ✔
+//to get list of books based on Languages - Done  ✔
 
 //2. Authors
 //we need an API
-//to get all authors
+//to get all authors - Done  ✔
 //to get specific author
 //to get a list of authors based on books
 

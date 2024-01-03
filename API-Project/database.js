@@ -13,7 +13,7 @@ const Books = [
         ISBN: "secretBook",
         title: "Secret Book",
         pubDate: "2021-08-05",
-        language: "en",
+        language: "hin",
         numPage: "250",
         author: [1],
         publication: [1],
