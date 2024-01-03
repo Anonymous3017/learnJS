@@ -109,6 +109,82 @@ booky.get("/author/:id", (req, res) => {
     return res.json({author: getSpecificAuthors})
 })
 
+/*
+Route           /author/book
+Description     Get specific authors based on books
+Access          PUBLIC
+Parameter       isbn
+Methods         GET
+*/
+
+booky.get("/author/book/:isbn", (req, res) => {
+    const getSpecificAuthors = database.Authors.filter(
+        (author) => author.books.includes(req.params.isbn)
+    )
+
+    if(getSpecificAuthors.length === 0) {
+        return res.json({ error: `No author forunf for the book of ${req.params.isbn}`})
+    }
+
+    return res.json({ author: getSpecificAuthors})
+})
+
+/*
+Route           /publications
+Description     Get all publications
+Access          PUBLIC
+Parameter       NONE
+Methods         GET
+*/
+
+booky.get("/publications", (req, res) => {
+    return res.json({ publications: database.Publications })
+    
+})
+
+/*
+Route           /publications/id
+Description     Get specific publications based on id
+Access          PUBLIC
+Parameter       id
+Methods         GET
+*/
+
+booky.get("/publications/:id", (req, res) => {
+    const getSpecificPublications = database.Publications.filter(
+        (publication) => publication.id === parseInt(req.params.id)
+    )
+
+    if(getSpecificPublications.length === 0) {
+        return res.json({ error: `No publication forunf for the id of ${req.params.id}`})
+    }
+
+    return res.json({publication: getSpecificPublications})
+})
+
+/*
+Route           /publications/book
+Description     Get specific publications based on books
+Access          PUBLIC
+Parameter       isbn
+Methods         GET
+*/
+
+booky.get("/publications/book/:isbn", (req, res) => {
+    const getSpecificPublications = database.Publications.filter(
+        (publication) => publication.books.includes(req.params.isbn)
+    )
+
+    if(getSpecificPublications.length === 0) {
+        return res.json({ error: `No publication forunf for the book of ${req.params.isbn}`})
+    }
+
+    return res.json({ publication: getSpecificPublications})
+})
+
+
+
+
 booky.listen(3000, () => {
     console.log("Server is up and running");
 });

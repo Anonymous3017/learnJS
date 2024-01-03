@@ -43,7 +43,7 @@ const Publications = [
     {
         id: 2,
         name: "writex2",
-        books: []
+        books: ["Harry Potter"]
     }
 ]
 
