@@ -344,7 +344,6 @@ booky.delete("/book/delete/author/:isbn/:authorId", (req, res) => {
             return;
         }
     });
-
     //Update the author database
     database.Authors.forEach((author) => {
         if(author.id === parseInt(req.params.authorId)) {
@@ -356,9 +355,9 @@ booky.delete("/book/delete/author/:isbn/:authorId", (req, res) => {
             return;
         }
     })
-
     return res.json({
         book: database.Books,
+        author: database.Authors,
         message: "Author was deleted!!!!"
     });
 });
