@@ -270,6 +270,36 @@ booky.post("/book/update/:isbn", (req, res) => {
     return res.json({books: getSpecificBooks})
 });
 
+/*
+Route           /publication/update/book
+Description     update/add a new publication
+Access          PUBLIC
+Parameter       isbn
+Methods         PUT
+*/
+
+booky.put("/publicaation/update/book/:isbn", (req, res) => {
+    //Update the publication database
+    database.Publications.forEach((pub) => {
+        if(pub.id === req.body.pubID) {
+            return pub.books.push(req.params.isbn);
+        }
+    });
+
+    //Update the book database
+    database.Books.forEach((book) => {
+        if(book.ISBN === req.params.isbn) {
+            book.publication = req.body.pubID;
+            return;
+        }
+    });
+
+    return res.json({
+        books: database.Books,
+        publications: database.Publications,
+        message: "Successfully Updated Publications."
+    });
+});
 
 booky.listen(3000, () => {
     console.log("Server is up and running");
